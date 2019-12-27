@@ -33,4 +33,9 @@ public class StudentServiceImpl implements StudentService{
         return studentRepository.save(student);
     }
 
+    @Override
+    public Student findOne(String studentId) {
+        return studentRepository.findOne(studentId);
+    }
+
 }
