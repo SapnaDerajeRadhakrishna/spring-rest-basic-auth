@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class StudentServiceImpl implements StudentService{
-    
+public class StudentServiceImpl implements StudentService {
+
     @Autowired
     private StudentRepository studentRepository;
 
@@ -25,7 +25,7 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public void delete(String studentId) {
-        studentRepository.delete(studentRepository.findOne(studentId));      
+        studentRepository.delete(studentRepository.findOne(studentId));
     }
 
     @Override

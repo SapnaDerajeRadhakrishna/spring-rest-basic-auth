@@ -22,12 +22,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(StudentController.BASE_URL)
 public class StudentController {
-    
+
     public static final String BASE_URL = "/api/v1/students";
-    
+
     @Autowired
     private StudentService studentService;
-        
+
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public Map<String, Object> getAllStudents() {
@@ -37,25 +37,25 @@ public class StudentController {
         response.put("students", students);
         return response;
     }
-    
+
     @GetMapping({ "/{studentId}" })
     @ResponseStatus(HttpStatus.OK)
     public Student getStudentById(@PathVariable String studentId) {
         return studentService.findOne(studentId);
     }
-    
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void createNewStudent(@RequestBody Student student) {
         studentService.save(student);
     }
-    
+
     @DeleteMapping
     @ResponseStatus(HttpStatus.OK)
-    public void deleteStudent(@RequestParam("studentId")String studentId) {
+    public void deleteStudent(@RequestParam("studentId") String studentId) {
         studentService.delete(studentId);
     }
-    
+
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
     public void updateStudent(@RequestBody Student student) {
